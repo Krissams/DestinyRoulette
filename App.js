@@ -12,11 +12,11 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '                    ',
+      text: '          ',
       savedOption: [
-        'Uno',
-        'Doss',
-        'Tress'
+        'KFC',
+        'Jolibee',
+        'Macdo'
       ]
     };
   }
@@ -25,14 +25,18 @@ export default class App extends Component {
     var random = this.state.savedOption[
       Math.floor(Math.random() * this.state.savedOption.length)
     ];
-    var n = 20 - random.length;
+    var n = 10 - random.length;
     var i = 0;
 
     for (i = 0; i < n; i++) { 
       random = random + " ";
     }
     
-    console.log('test', random);
+    console.log('test', [
+      random,
+      n,
+      random.length
+    ]);
 
     this.setState({
       text: random
@@ -44,7 +48,6 @@ export default class App extends Component {
       <View style={styles.container}>
         <SlotMachine 
           text={this.state.text} 
-          
         />
         <Button
           onPress={() => this.onPress()}
